@@ -31,7 +31,7 @@ As humanity sets its sights on Mars, we are developing the "Journey Orchestrator
 
 **Pre-commit Hook:** Husky
 
-**Deployment:** Docker, Gitlab
+**Deployment:** Docker
 
 ## Project Setup
 
