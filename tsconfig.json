@@ -1,0 +1,41 @@
+{
+    "compilerOptions": {
+        /* Interop Constraint: */
+        "esModuleInterop": true, //clearly defind the default and namespace exports.
+        "allowSyntheticDefaultImports": true, // import utils from "utils"; -> import * as utils from "utils";
+
+        /* Language & environment: */
+        "jsx": "react", // emit the file with JSX changed to the equivalent React.createElement calls.
+        "target": "ES5", // resulted js version for compiled file. transpiled to
+        "lib": ["DOM", "ES2021"], // help use the latest function such as array.flatMap, array.flat,
+
+        /* Module: */
+        "baseUrl": "src", //defines base folder
+        "module": "ESNext", // const instead of var, `` for string interpolation.
+        "moduleResolution": "Node",
+        "resolveJsonModule": true, // allow import of .json files.
+        "paths": {
+            "components/*": ["src/components/*"],
+            "store/*": ["src/store/*"],
+            "context/*": ["src/context/*"],
+            "utils/*": ["src/utils/*"]
+        },
+
+        /* Completeness */
+        "skipLibCheck": true, // skip type check of declaration files.
+
+        /* JavaScript Support: */
+        "allowJs": true, // js file are allowed
+
+        /* Emit: */
+        "sourceMap": true, //help in debugging the code in dev tool. line numbers from specific file.
+        "outDir": "dist",
+
+        /* Type Checking: */
+        "noImplicitAny": true, // return type must not be any
+
+        "types": ["jest", "@testing-library/jest-dom"]
+    },
+    "include": ["src", "./global.d.ts"],
+    "exclude": ["node_modules"]
+}
