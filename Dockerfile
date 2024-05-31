@@ -17,4 +17,6 @@ COPY --from=journey-mars /usr/local/client/scripts/ ./scripts/
 
 EXPOSE 3000
 
-CMD ["./scripts/init.sh"]
+#CMD ["./scripts/init.sh"]
+#This seems to work in local, some how script is not able to invoke server main.js so doing it without script.
+CMD ["node", "server/main.js"]
