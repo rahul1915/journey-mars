@@ -82,10 +82,10 @@ docker build -t <name> .
 Run docker image
 
 ```
-docker container run -p 3000:3000 <docker image>
+docker container run -p 5001:3000 <docker image>
 ```
 
-Open your browser and navigate to http://localhost:3000.
+Open your browser and navigate to http://localhost:5001.
 
 #### Running Tests
 
