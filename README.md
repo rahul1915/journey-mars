@@ -46,7 +46,7 @@ As humanity sets its sights on Mars, we are developing the "Journey Orchestrator
 Clone the repository:
 
 ```
-git clone https://github.com/<User_Name>/journey-mars.git
+git clone https://github.com/rahul1915/journey-mars.git
 ```
 
 Navigate to the project directory:
