@@ -177,8 +177,7 @@ Resuable Components
 Button.tsx
 Input.tsx
 Select.tsx
-JourneyTable.tsx
-JourneyTableRow.tsx
+JourneyFilter.tsx
 JourneyTablePagination.tsx
 ```
 
