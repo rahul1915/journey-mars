@@ -99,7 +99,7 @@ Code Quality & Formatting
 
 ```
 npm run lint
-npm run lin:fix
+npm run lint:fix
 npm run format
 ```
 Pre Commit
