@@ -93,7 +93,7 @@ Open your browser and navigate to http://localhost:5001.
 npm run test
 ```
 
-#### Other scripts 
+#### Other scripts
 
 Code Quality & Formatting
 
@@ -102,11 +102,12 @@ npm run lint
 npm run lint:fix
 npm run format
 ```
+
 Pre Commit
+
 ```
 npm run pc
 ```
-
 
 ## Project Structure
 
