@@ -34,7 +34,8 @@
         /* Type Checking: */
         "noImplicitAny": true, // return type must not be any
 
-        "types": ["jest", "@testing-library/jest-dom"]
+
+        "types": ["node", "jest", "@testing-library/jest-dom"],
     },
     "include": ["src", "./global.d.ts"],
     "exclude": ["node_modules"]

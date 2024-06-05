@@ -10,7 +10,7 @@ import PassengerForm from '../form/PassengerForm';
 import Card from '../form/Card';
 import useJourneyStore from '../../../hooks/useJourneyStore';
 import { validateJourney } from '../../../utils/validation';
-import { getUpdateFromData } from '../../../utils/utils';
+import { getUpdatedFromData } from '../../../utils/utils';
 import { Engineer, Journey, MemberType, Pilot, Passenger } from '../../../types/types';
 
 interface JourneyModalProps {
@@ -84,7 +84,7 @@ const JourneyModal: React.FC<JourneyModalProps> = ({ onClose, currentJourney, se
     };
 
     const handleAddOrRemoveMember = (toAdd: boolean, type: string, member: Pilot | Engineer | Passenger) => {
-        const updatedFormData = getUpdateFromData(toAdd, type, member, formData);
+        const updatedFormData = getUpdatedFromData(toAdd, type, member, formData);
         setFormData(updatedFormData);
         setInitialState();
     };

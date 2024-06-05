@@ -1,6 +1,6 @@
 import { Engineer, Journey, Passenger, Pilot } from '../types/types';
 
-export const getUpdateFromData = (
+export const getUpdatedFromData = (
     toAdd: boolean,
     type: string,
     member: Pilot | Engineer | Passenger,

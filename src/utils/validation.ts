@@ -2,7 +2,7 @@ import { JobType, Journey } from '../types/types';
 
 const PILOT_MIN_EXPERIENCE = 10;
 const ENGINEER_MIN_EXPERIENCE = 5;
-const PASSANGER_MIN_AGE = 18;
+const PASSENGER_MIN_AGE = 18;
 
 export const validateJourney = (journey: Journey): string[] => {
     const errors: string[] = [];
@@ -49,7 +49,7 @@ export const validatePassenger = (name: string, value: string | number) => {
     if (name === 'name' && !value.toString().trim()) {
         return 'Name is required';
     }
-    if (name === 'age' && (Number.isNaN(value) || value <= PASSANGER_MIN_AGE)) {
+    if (name === 'age' && (Number.isNaN(value) || value <= PASSENGER_MIN_AGE)) {
         return 'Age should be greater than 18';
     }
     if (name === 'wealth' && (Number.isNaN(value) || value <= 1)) {
