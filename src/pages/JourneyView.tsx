@@ -15,7 +15,7 @@ interface JourneyViewProps {
     onShowToast: (messages: string[], type: 'success' | 'error') => void;
 }
 
-const ITEM_PER_PAGE = 10;
+const ITEM_PER_PAGE = 3;
 
 const JourneyView: React.FC<JourneyViewProps> = ({ onOpenModal, onEdit, onShowToast }) => {
     const { journeys, removeJourney } = useJourneyStore();

@@ -1,20 +1,12 @@
 import React, { useState } from 'react';
-import { Engineer, JobType, Passenger, Pilot } from '../types/types';
+import { JobType } from '../types/types';
 
-interface CombinedFormProps {
-    name: string;
-    age: number;
-    experience: number;
-    wealth: number;
-    job: JobType;
-}
-
-const useFormValidation = (
-    initialState: Pilot | Engineer | Passenger,
+const useFormValidation = <T>(
+    initialState: T,
     validate: (name: string, value: string | number | JobType) => string
 ) => {
-    const [values, setValues] = useState<CombinedFormProps>(initialState as CombinedFormProps);
-    const [errors, setErrors] = useState<CombinedFormProps>(initialState as CombinedFormProps);
+    const [values, setValues] = useState<T>(initialState);
+    const [errors, setErrors] = useState<T>(initialState);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;

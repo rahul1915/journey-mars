@@ -33,16 +33,14 @@ export const validateJourney = (journey: Journey): string[] => {
         jobSet.add(engineer.job);
     }
 
-    // Check if there is at least one passenger
-    if (journey.passengers.length < 1) {
-        errors.push('There must be at least one passenger.');
-    }
-
+    // Check if there is at least one passenger and (if one of them has 10M or total count at least 10)
     if (journey.passengers.length > 0) {
         const index = journey.passengers.findIndex((p) => p.wealth >= PASSENGER_WEALTH_WILD_CARD);
         if (index === -1 && journey.passengers.length < PASSENGER_MIN_COUNT_WITHOUT_WILD_CARD) {
             errors.push('Passenger should have min 10M or At least 10 passengers should be added');
         }
+    } else {
+        errors.push('There must be at least one passenger.');
     }
 
     return errors;
