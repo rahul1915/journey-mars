@@ -1,8 +1,11 @@
 import { JobType, Journey } from '../types/types';
 
 const PILOT_MIN_EXPERIENCE = 10;
-const ENGINEER_MIN_EXPERIENCE = 5;
-const PASSENGER_MIN_AGE = 18;
+const PILOT_MAX_EXPERIENCE = 80;
+const ENGINEER_MIN_EXPERIENCE = 1;
+const PASSENGER_MIN_AGE = 5;
+const PASSENGER_WEALTH_WILD_CARD = 10;
+const PASSENGER_MIN_COUNT_WITHOUT_WILD_CARD = 10;
 
 export const validateJourney = (journey: Journey): string[] => {
     const errors: string[] = [];
@@ -35,17 +38,27 @@ export const validateJourney = (journey: Journey): string[] => {
         errors.push('There must be at least one passenger.');
     }
 
+    if (journey.passengers.length > 0) {
+        const index = journey.passengers.findIndex((p) => p.wealth >= PASSENGER_WEALTH_WILD_CARD);
+        if (index === -1 && journey.passengers.length < PASSENGER_MIN_COUNT_WITHOUT_WILD_CARD) {
+            errors.push('Passenger should have min 10M or At least 10 passengers should be added');
+        }
+    }
+
     return errors;
 };
 
-export const validatePilot = (name: string, value: string | number) => {
-    if (name === 'experience' && (Number.isNaN(value) || value <= PILOT_MIN_EXPERIENCE)) {
-        return 'Pilot should have at least 10 years of experience';
+export const validatePilot = (name: string, value: string | number): string => {
+    if (
+        name === 'experience' &&
+        (Number.isNaN(value) || value < PILOT_MIN_EXPERIENCE || value > PILOT_MAX_EXPERIENCE)
+    ) {
+        return 'Pilot should have at experience between 10 - 80';
     }
     return '';
 };
 
-export const validatePassenger = (name: string, value: string | number) => {
+export const validatePassenger = (name: string, value: string | number): string => {
     if (name === 'name' && !value.toString().trim()) {
         return 'Name is required';
     }
@@ -58,7 +71,7 @@ export const validatePassenger = (name: string, value: string | number) => {
     return '';
 };
 
-export const validateEngineer = (name: string, value: string | number | JobType) => {
+export const validateEngineer = (name: string, value: string | number | JobType): string => {
     if (name === 'experience' && (Number.isNaN(value) || value < ENGINEER_MIN_EXPERIENCE)) {
         return 'Engineer should have at least 5 years of experience';
     }

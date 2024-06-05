@@ -11,7 +11,7 @@ interface CombinedFormProps {
 
 const useFormValidation = (
     initialState: Pilot | Engineer | Passenger,
-    validate: (name: string, value: string | number | JobType) => void
+    validate: (name: string, value: string | number | JobType) => string
 ) => {
     const [values, setValues] = useState<CombinedFormProps>(initialState as CombinedFormProps);
     const [errors, setErrors] = useState<CombinedFormProps>(initialState as CombinedFormProps);

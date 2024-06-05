@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useCallback } from 'react';
 import { RootState, AppDispatch } from '../store';
 import { addJourney, updateJourney, deleteJourney, setJourneys } from '../store/journeySlice';
 import { Journey } from '../types/types';
@@ -7,21 +8,33 @@ const useJourneyStore = () => {
     const dispatch = useDispatch<AppDispatch>();
     const journeys = useSelector((state: RootState) => state.journey.journeys);
 
-    const setJourneyData = (journeyData: Journey[]) => {
-        dispatch(setJourneys(journeyData));
-    };
+    const setJourneyData = useCallback(
+        (journeyData: Journey[]) => {
+            dispatch(setJourneys(journeyData));
+        },
+        [dispatch]
+    );
 
-    const createJourney = (journey: Journey) => {
-        dispatch(addJourney(journey));
-    };
+    const createJourney = useCallback(
+        (journey: Journey) => {
+            dispatch(addJourney(journey));
+        },
+        [dispatch]
+    );
 
-    const editJourney = (journey: Journey) => {
-        dispatch(updateJourney(journey));
-    };
+    const editJourney = useCallback(
+        (journey: Journey) => {
+            dispatch(updateJourney(journey));
+        },
+        [dispatch]
+    );
 
-    const removeJourney = (id: string) => {
-        dispatch(deleteJourney(id));
-    };
+    const removeJourney = useCallback(
+        (id: string) => {
+            dispatch(deleteJourney(id));
+        },
+        [dispatch]
+    );
 
     return { journeys, createJourney, editJourney, removeJourney, setJourneyData };
 };
