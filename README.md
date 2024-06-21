@@ -31,15 +31,12 @@ As humanity sets its sights on Mars, we are developing the "Journey Orchestrator
 
 **Pre-commit Hook:** Husky
 
-**Deployment:** Docker
-
 ## Project Setup
 
 ### Prerequisites
 
 -   Node.js
 -   npm
--   Docker
 
 ### Installation
 
@@ -58,7 +55,7 @@ cd journey-mars
 Install dependencies:
 
 ```
-make install
+npm install
 ```
 
 ### Running the Application:
@@ -66,26 +63,10 @@ make install
 #### Local Environment
 
 ```
-make start
+npm run start
 ```
 
 Open your browser and navigate to http://localhost:5000.
-
-#### Remote Environment (mimic)
-
-Create docker image
-
-```
-docker build -t <docker_image_name> .
-```
-
-Run docker image
-
-```
-docker container run -p 5001:3000 <docker_image_name>
-```
-
-Open your browser and navigate to http://localhost:5001.
 
 #### Running Tests
 

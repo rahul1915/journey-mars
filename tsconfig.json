@@ -14,12 +14,7 @@
         "module": "ESNext", // const instead of var, `` for string interpolation.
         "moduleResolution": "Node",
         "resolveJsonModule": true, // allow import of .json files.
-        "paths": {
-            "components/*": ["src/components/*"],
-            "store/*": ["src/store/*"],
-            "context/*": ["src/context/*"],
-            "utils/*": ["src/utils/*"]
-        },
+        "paths": {},
 
         /* Completeness */
         "skipLibCheck": true, // skip type check of declaration files.
